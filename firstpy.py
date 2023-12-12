@@ -13,7 +13,7 @@ def parse_input():
         '--XX',
         type = int,
         default = 7,
-        help='input for the multiplyby9 function'
+        help='input for the XX function'
     )
 
     args = parser.parse_args()
