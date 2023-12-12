@@ -9,11 +9,12 @@ def parse_input():
         required = True,
         help='input for the multiplyby9 function'
     )
+    
      parser.add_argument(
         '--XX',
         type = int,
         default = 7,
-        help='input for the XX function'
+        help='input for the multiplyby9 function'
     )
 
     args = parser.parse_args()
