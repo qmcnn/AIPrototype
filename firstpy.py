@@ -9,8 +9,8 @@ def parse_input():
         required = True,
         help='input for the multiplyby9 function'
     )
-    
-     parser.add_argument(
+
+    parser.add_argument(
         '--XX',
         type = int,
         default = 7,
