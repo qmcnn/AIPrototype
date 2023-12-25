@@ -3,5 +3,5 @@ import subprocess #สำหรับรัน terminal command
 if __name__ == "__main__":
     #basic terminal command
     subprocess.run(["ls","-ltr"])
-    subprocess.run(["rm","-r","~/home/chanoknan/testfolder1"])
-    subprocess.run(["cd"])
+    subprocess.run(["rm","-r","/home/chanoknan/testfolder1"])
+ 
