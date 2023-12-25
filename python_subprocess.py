@@ -5,10 +5,13 @@ def print_():
 if __name__ == "__main__":
     #basic terminal command
     subprocess.run(["ls","-ltr"])
-    subprocess.run(["python", "firstpy.py", "--num", "100", "--XX", "90"])
+    print("first run num=100 XX=90")
+    subprocess.run(["python", "firstpy.py", "--num", "100",])
     print_()
+    print("second run num=100 XX=90")
     subprocess.run(["python", "firstpy.py", "--num", "-10", "--XX", "-90"])
     print_()
+    print("third run num=100 XX=90")
     subprocess.run(["python", "firstpy.py", "--num", "0"])
     print_()
  
