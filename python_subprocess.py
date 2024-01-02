@@ -28,4 +28,6 @@ print(len(out.decode('utf-8')))
 
 output1 = subprocess.run(["python", "firstpy.py", "--num", "100","--XX", "90"])
 value1 = int(output1.split('/n')[3])
-print(value1"sum output")
+
+print("sum output")
+print(value1)
