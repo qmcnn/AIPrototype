@@ -26,8 +26,8 @@ print(len(out.decode('utf-8')))
 
 ##HW เขียน subprocess sum output ทั้งหมดของ command 3 อันข้างบน (ตัวเลขก่อน hello world!)
 
-output1 = subprocess.check_output(["python", "firstpy.py", "--num", "100","--XX", "90"])
+output1 = subprocess.check_output(["python", "firstpy.py", "--num", "100","--XX", "90"]decode('utf-8'))
 value1 = int(output1.split('\n')[3])
 
 print("sum output")
-print(value1.decode('utf-8'))
+print(value1)
