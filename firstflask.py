@@ -8,5 +8,5 @@ app = Flask(__name__)
 def helloworld():
     return "Hello, World!"
 
-if __name__ == "__name__":
+if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True, post=5001)#h
