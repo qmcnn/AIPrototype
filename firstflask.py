@@ -22,7 +22,7 @@ def homefn():
     if request.method == "GET":
         print('we are in home(GET)', file=sys.stdout)
         #getting input with name = fname in HTML from
-        namein = request.form.get('fname')
+        namein = request.args.get('fname')
         print(namein, file=sys.stdout)
         return render_template("home.html", name=namein)
     
