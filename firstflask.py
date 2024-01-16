@@ -16,7 +16,7 @@ def hellochanoknan():
 def home2():
     return render_template("home.html", name='chanoknan')
 
-@app.route("/home", methods=['POST'])#เปิดรับpost
+@app.route("/home", methods=['POST','GET'])#เปิดรับpost
 def homefn():
     print('we are in home')
     #getting input with name = fname in HTML from
