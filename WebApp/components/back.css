@@ -1,0 +1,38 @@
+.back-back {
+  width: 70px;
+  height: 45px;
+  display: flex;
+  position: relative;
+  transition: 0.3s;
+  align-items: flex-start;
+  flex-shrink: 1;
+  background-color: rgba(217, 217, 217, 0.4000000059604645);
+}
+.back-back:hover {
+  transform: translateY(-4px);
+  box-shadow: initial;
+}
+.back-arrow {
+  top: 7px;
+  left: 18px;
+  width: 34px;
+  height: 30px;
+  position: absolute;
+}
+.back-root-class-name {
+  top: 14px;
+  left: 24px;
+  position: absolute;
+}
+.back-root-class-name1 {
+  top: 14px;
+  left: 24px;
+  position: absolute;
+}
+@media(max-width: 1600px) {
+  .back-back {
+    top: 14px;
+    left: 24px;
+    border-radius: 10px;
+  }
+}
