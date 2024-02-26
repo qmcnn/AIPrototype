@@ -9,16 +9,9 @@ app = Flask(__name__)
 def upload_file():
     if request.method == 'POST':
         # check if the post request has the file part
-        #if 'file' not in request.files:
-        #    flash('No file part')
-        #    return redirect(request.url)
         file = request.files['file']
-        # If the user does not select a file, the browser submits an
-        # empty file without a filename.
-        #if file.filename == '':
-        #    flash('No selected file')
-        #    return redirect(request.url)
-        file.save('filename')
+        # Save the file to a specific location (you may need to modify this)
+        file.save('uploaded_file.xlsx')
         return render_template("input.html", name='upload completed')
         
     return '''
@@ -32,4 +25,4 @@ def upload_file():
     '''
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0',debug=True,port=5001)#host='0.0.0.0',port=5001
+    app.run(host='0.0.0.0', debug=True, port=5001)
