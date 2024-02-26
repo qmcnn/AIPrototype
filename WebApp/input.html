@@ -1,0 +1,43 @@
+<script src="https://igniteui.com/js/modernizr.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+<script src="https://cdn-na.infragistics.com/igniteui/latest/js/infragistics.core.js"></script>
+<script src="https://cdn-na.infragistics.com/igniteui/latest/js/infragistics.lob.js"></script>
+<script src="https://cdn-na.infragistics.com/igniteui/latest/js/infragistics.excel-bundled.js"></script>
+<script src="https://cdn-na.infragistics.com/igniteui/latest/js/infragistics.spreadsheet-bundled.js"></script>
+<script src="https://www.igniteui.com/js/external/FileSaver.js"></script>
+<link href="https://cdn-na.infragistics.com/igniteui/latest/css/themes/infragistics/infragistics.theme.css" rel="stylesheet"></link>
+<link href="https://cdn-na.infragistics.com/igniteui/latest/css/structure/infragistics.css" rel="stylesheet"></link>
+
+<div>
+    <ol>
+        <li>Download this <a href="./template.xlsx" download="">sample Excel file</a></li>
+        <li>Click Choose File/Browse button below and pick the sample Excel file or another excel file.</li>
+        <li>Edit excel content or disable editing</li>
+        <li>Download excel file</li>
+    </ol>
+    <div class="spreadsheet-sample-btn">
+        <input type="file" id="input" accept="application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"></input>
+        <span> Choose a file... </span>
+    </div>
+    <div>
+        <!-- เพิ่มปุ่ม Upload -->
+        <input class="spreadsheet-sample-btn" id="uploadBtn" type="button" value="Upload" onclick="upload()">
+        </input>
+        <!-- เพิ่มปุ่ม Reset -->
+        <input class="spreadsheet-sample-btn" id="resetBtn" type="button" value="Reset" onclick="reset()">
+        </input>
+    </div>
+    <div class="editing-controls-container">
+        <!-- นำ Enable excel editing ออก -->
+        <!-- <span for="enableEditing" class="show-row-text">
+            <div id="enableEditing"></div>
+            <span class="label-editing">Enable excel editing</span>
+        </span> -->
+    </div>
+    <div class="clear"></div>
+
+    <div id="result"></div>
+    <div id="spreadsheet"></div>
+</div>
+
