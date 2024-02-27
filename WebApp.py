@@ -5,6 +5,10 @@ import sys
 
 app = Flask(__name__)
 
+@app.route('/')
+def index():
+    return render_template('index.html')
+
 @app.route('/upload', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
@@ -12,7 +16,7 @@ def upload_file():
         file = request.files['file']
         # Save the file to a specific location (you may need to modify this)
         file.save('uploaded_file.xlsx')
-        return render_template("index.html", name='upload completed')
+        return render_template("normal.html", name='upload completed')
         
     return '''
     <!doctype html>
