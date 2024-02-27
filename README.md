@@ -29,4 +29,4 @@ Chanoknan Meesing 👩🏻‍💻
 
 
 
-##   [Web Application 💻](https://qmcnn.github.io/AIPrototype2023/WebApp/index.html)
+##   [Web Application 💻](https://qmcnn.github.io/AIPrototype2023/WebApp/template-html/index.html)
