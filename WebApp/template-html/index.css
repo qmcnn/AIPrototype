@@ -191,6 +191,9 @@
   height: 556px;
   position: absolute;
 }
+.input-page-navlink {
+  display: contents;
+}
 .upload-group3708 {
   top: 55px;
   left: 564.4267578125px;
