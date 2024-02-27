@@ -16,6 +16,7 @@ def upload_file():
         file = request.files['file']
         # Save the file to a specific location (you may need to modify this)
         file.save('uploaded_file.xlsx')
+## add function 
         return render_template("normal.html", name='upload completed')
         
     return '''
