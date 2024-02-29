@@ -9,18 +9,33 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
+@app.route('/upload', methods=['GET', 'POST'])
+def upload_file():
+    if request.method == 'POST':
+        # check if the post request has the file part
+        #if 'file' not in request.files:
+        #    flash('No file part')
+        #    return redirect(request.url)
+        file = request.files['file']
+        # If the user does not select a file, the browser submits an
+        # empty file without a filename.
+        #if file.filename == '':
+        #    flash('No selected file')
+        #    return redirect(request.url)
+        file.save('filedata')
+        return render_template("index.html", name='upload completed')
 ##api post
-@app.route('/request',methods=['POST'])
-def web_service_API():
+#@app.route('/request',methods=['POST'])
+#def web_service_API():
     
-    payload = request.data.decode("utf-8")
-    inmessage = json.loads(payload)
+ #   payload = request.data.decode("utf-8")
+ #   inmessage = json.loads(payload)
 
-    print(inmessage)
+ #   print(inmessage)
     
     
-    json_data = json.dumps({'y': 'received!'})
-    return json_data
+ #   json_data = json.dumps({'y': 'received!'})
+ #   return json_data
 
 
 #@app.route("/")  
@@ -35,49 +50,25 @@ def web_service_API():
 #def home2():
  #   return render_template("home.html", name='chanoknan')
 
-@app.route("/home", methods=['POST','GET'])#เปิดรับpost
-def homefn():
-    if request.method == "GET":
-        print('we are in home(GET)', file=sys.stdout)
+#@app.route("/home", methods=['POST','GET'])#เปิดรับpost
+#def homefn():
+#    if request.method == "GET":
+#        print('we are in home(GET)', file=sys.stdout)
         #getting input with name = fname in HTML from
-        namein = request.args.get('fname')
-        print(namein, file=sys.stdout)
-        return render_template("home.html", name=namein)
+#        namein = request.args.get('fname')
+ #       print(namein, file=sys.stdout)
+ #       return render_template("home.html", name=namein)
     
-    elif request.method == "POST":
-        print('we are in home(POST)', file=sys.stdout)
-        #getting input with name = fname in HTML from
-        namein = request.form.get('fname')
-        lastnamein = request.form.get('lname')
-        print(namein, file=sys.stdout)
-        print(lastnamein, file=sys.stdout)
-        return render_template("home.html", name=namein)
+#    elif request.method == "POST":
+#        print('we are in home(POST)', file=sys.stdout)
+#        #getting input with name = fname in HTML from
+#        namein = request.form.get('fname')
+#        lastnamein = request.form.get('lname')
+#        print(namein, file=sys.stdout)
+#        print(lastnamein, file=sys.stdout)
+#        return render_template("home.html", name=namein)
 
-@app.route('/upload', methods=['GET', 'POST'])
-def upload_file():
-    if request.method == 'POST':
-        # check if the post request has the file part
-        #if 'file' not in request.files:
-        #    flash('No file part')
-        #    return redirect(request.url)
-        file = request.files['file']
-        # If the user does not select a file, the browser submits an
-        # empty file without a filename.
-        #if file.filename == '':
-        #    flash('No selected file')
-        #    return redirect(request.url)
-        file.save('filename')
-        return render_template("index.html", name='upload completed')
-        
-    return '''
-    <!doctype html>
-    <title>Upload new File</title>
-    <h1>Upload new File</h1>
-    <form method=post enctype=multipart/form-data>
-      <input type=file name=file>
-      <input type=submit value=Upload>
-    </form>
-    '''
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0',debug=True,port=5001)#host='0.0.0.0',port=5001
