@@ -53,7 +53,9 @@
 }
 .upload-frame9 {
   gap: 10px;
-  width: 147px;
+  width: 250px;
+  bottom: 5px;
+  left: 700;
   display: flex;
   padding: 17px 30px;
   position: absolute;
@@ -141,8 +143,8 @@
 }
 .upload-frame7 {
   gap: 10px;
-  left: 450px;
-  bottom: -0.40000152587890625px;
+  left: 400px;
+  bottom: 5px;
   width: 250px;
   display: flex;
   padding: 17px 30px;
@@ -602,7 +604,7 @@
   font-stretch: normal;
   text-decoration: none;
 }
-@media(max-width: 1400px) {
+@media(max-width: 1200px) {
   .upload-frame9 {
     left: 556px;
     bottom: 66px;
