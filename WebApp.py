@@ -22,7 +22,7 @@ def upload_file():
         #if file.filename == '':
         #    flash('No selected file')
         #    return redirect(request.url)
-        file.save('filedata')
+        file.save('uploads/' + file.filename)
         return render_template("index.html", name='upload completed')
 ##api post
 #@app.route('/request',methods=['POST'])

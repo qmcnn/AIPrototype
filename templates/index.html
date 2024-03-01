@@ -282,11 +282,7 @@
                 class="upload-star2"
               />
             </div>
-            <div class="upload-frame9">
-              <form action="{{url_for('upload_file')}}" method="post" enctype="multipart/form-data">
-              <button class="upload-text" type="submit">predicto!</button>
-              </form>  
-            </div>
+    
             <div class="upload-banner">
               <button class="upload-frame8button">
                 <span class="upload-text02">
@@ -308,10 +304,13 @@
                 <span>effortlessly!</span>
               </span>
               <div class="upload-frame7">
-                <span class="upload-text11">
-                  <input type="file" id="input" accept="application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
-                </span>
-              </div>
+                <form action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data">
+                    <span class="upload-text11">
+                        <input type="file" id="input" name="file" accept="application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+                    </span>
+                    <button class="upload-frame9" type="submit">predicto!</button>
+                </form>
+            </div>            
               <div class="upload-bannerright">
                 <img
                   alt="image1908054"
