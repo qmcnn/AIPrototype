@@ -8,7 +8,7 @@
   justify-content: center;
 }
 .normal-text {
-  top: 142px;
+  top: 50px;
   left: 0px;
   color: rgba(0, 0, 0, 1);
   right: 0px;
@@ -17,7 +17,7 @@
   margin: auto;
   position: absolute;
   font-size: 63px;
-  font-style: Bold;
+  font-style: bold;
   text-align: center;
   font-family: DM Sans;
   font-weight: 700;
@@ -87,7 +87,7 @@
   position: absolute;
 }
 .normal-container1 {
-  top: 354px;
+  top: 262px;
   right: 132px;
   width: 565px;
   height: 325px;
@@ -106,7 +106,7 @@
   border-radius: 12.774282455444336px;
 }
 .normal-text2 {
-  top: 143px;
+  top: 51px;
   left: 207px;
   color: rgb(150, 47, 47);
   width: 215px;
