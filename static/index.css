@@ -604,7 +604,7 @@
   font-stretch: normal;
   text-decoration: none;
 }
-@media(max-width: 1200px) {
+@media(max-width: 1000px) {
   .upload-frame9 {
     left: 500px;
     bottom: 66px;
