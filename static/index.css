@@ -55,7 +55,6 @@
   gap: 10px;
   width: 120px;
   bottom: 5px;
-  left: 900;
   display: flex;
   padding: 17px 30px;
   position: absolute;
@@ -608,6 +607,7 @@
   .upload-frame9 {
     left: 900px;
     bottom: 66px;
+    z-index: 2;
   }
   .upload-banner {
     left: 0px;
@@ -620,6 +620,7 @@
   .upload-frame7 {
     left: 500px;
     bottom: 13px;
+    z-index: 1;
   }
   .upload-bannerright {
     top: -23px;
