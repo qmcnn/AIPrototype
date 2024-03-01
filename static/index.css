@@ -141,7 +141,7 @@
 }
 .upload-frame7 {
   gap: 10px;
-  left: 500px;
+  left: 450px;
   bottom: -0.40000152587890625px;
   width: 250px;
   display: flex;
@@ -605,7 +605,7 @@
 @media(max-width: 1200px) {
   .upload-frame9 {
     left: 556px;
-    bottom: 13px;
+    bottom: 66px;
   }
   .upload-banner {
     left: 0px;
