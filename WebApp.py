@@ -23,7 +23,7 @@ def upload_file():
         #    flash('No selected file')
         #    return redirect(request.url)
         file.save('uploads/' + file.filename)
-        return render_template("index.html", name='upload completed')
+        return render_template("normal.html", name='upload completed')
 ##api post
 #@app.route('/request',methods=['POST'])
 #def web_service_API():
