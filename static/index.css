@@ -53,8 +53,9 @@
 }
 .upload-frame9 {
   gap: 10px;
-  width: 120px;
-  bottom: 5px;
+  left: 850px;
+  width: 147px;
+  bottom: 50px;
   display: flex;
   padding: 17px 30px;
   position: absolute;
@@ -143,8 +144,8 @@
 .upload-frame7 {
   gap: 10px;
   left: 500px;
-  bottom: 5px;
-  width: 270px;
+  bottom: -0.40000152587890625px;
+  width: 250px;
   display: flex;
   padding: 17px 30px;
   position: absolute;
@@ -605,9 +606,8 @@
 }
 @media(max-width: 1200px) {
   .upload-frame9 {
-    left: 900px;
+    left: 556px;
     bottom: 66px;
-    z-index: 2;
   }
   .upload-banner {
     left: 0px;
@@ -618,9 +618,8 @@
     left: 32px;
   }
   .upload-frame7 {
-    left: 500px;
+    left: 349px;
     bottom: 13px;
-    z-index: 1;
   }
   .upload-bannerright {
     top: -23px;
