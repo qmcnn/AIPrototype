@@ -53,9 +53,9 @@
 }
 .upload-frame9 {
   gap: 10px;
-  left: 850px;
+  left: 600px;
   width: 147px;
-  bottom: 50px;
+  bottom: 0px;
   display: flex;
   padding: 17px 30px;
   position: absolute;
@@ -143,8 +143,8 @@
 }
 .upload-frame7 {
   gap: 10px;
-  left: 500px;
-  bottom: -0.40000152587890625px;
+  left: 450px;
+  bottom: 0px;
   width: 250px;
   display: flex;
   padding: 17px 30px;
