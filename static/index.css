@@ -143,7 +143,7 @@
 }
 .upload-frame7 {
   gap: 10px;
-  left: 900px;
+  left: 500px;
   bottom: 5px;
   width: 270px;
   display: flex;
@@ -618,7 +618,7 @@
     left: 32px;
   }
   .upload-frame7 {
-    left: 900px;
+    left: 500px;
     bottom: 13px;
   }
   .upload-bannerright {
