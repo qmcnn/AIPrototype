@@ -6,7 +6,7 @@ model = joblib.load("../AIPrototype2023/templates/model_webapp.joblib")
 
 def load_data(file_path):
     import pandas as pd
-    data = pd.read_csv(file_path)
+    data = pd.read_csv(file_path, encoding='latin1')
     return data.values
 
 app = Flask(__name__)
