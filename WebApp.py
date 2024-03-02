@@ -20,7 +20,7 @@ def upload_file():
     if request.method == 'POST':
         file = request.files['file']
         # Save the uploaded file
-        file_path = f"uploads/{file.filename}"
+        file_path = f"{file.filename}"
         file.save(file_path)
 
         # Load the data from the file
