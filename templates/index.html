@@ -303,14 +303,20 @@
                 </span>
                 <span>effortlessly!</span>
               </span>
-              
-              <form action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data">
-                
-                <input type="file" name="file" accept="application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
-                  
-                <input type="submit" value="Upload" >
+              <div class="upload-frame7">
+                <form id="uploadForm" action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data">
+                  <span class="upload-text11">
+                    <input type="file" id="input" name="file" accept="application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+                  </span>
                 </form>
-                         
+                <button class="upload-frame9" type="button" onclick="submitForm()">predicto!</button>
+              </div>
+              <script>
+                function submitForm() {
+                  document.getElementById("uploadForm").submit();
+                }
+              </script>
+              
               <div class="upload-bannerright">
                 <img
                   alt="image1908054"
