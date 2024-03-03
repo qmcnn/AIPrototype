@@ -39,7 +39,7 @@ def upload_file():
             result_template = 'chronic.html'
 
         # Write the predictions to a CSV file
-        csv_file_path = 'static/predictions.csv'
+        csv_file_path = 'static/data/predictions.csv'
         with open(csv_file_path, 'w') as f:
             f.write('predict class\n')
             for result in predictions:
