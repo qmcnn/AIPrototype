@@ -27,11 +27,19 @@ def upload_file():
         predictions = model.predict(scaled_data)
 
         # Determine the template to render based on the prediction
-        if predictions[0] == 0:
+        if all(value == 0 for value in predictions):
             return render_template('normal.html')
-        elif predictions[0] == 1:
+        elif any(value == 1 for value in predictions):
             return render_template('chronic.html')
 
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0',debug=True,port=5001)#host='0.0.0.0',port=5001
+
+
+  #padding-left: 40px;
+  #padding-bottom: 15px;
+  #padding-top: 15px;
+  #padding-right: 20px;
+
+#style="bottom: 0px; text-align: center; left: 700px;"
