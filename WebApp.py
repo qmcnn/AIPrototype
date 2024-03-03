@@ -15,7 +15,7 @@ def index():
 def upload_file():
     if request.method == 'POST':
         file = request.files['file']
-        upload_folder = '/Users/mintttttttt/AIPrototype2023/static/data'
+        upload_folder = '../AIPrototype2023/static/data'
         file_path = os.path.join(upload_folder)
 
         # Save the uploaded file
