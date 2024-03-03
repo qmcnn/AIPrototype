@@ -1,16 +1,12 @@
 from flask import Flask, request, render_template, make_response 
 from sklearn.preprocessing import StandardScaler
 import joblib
+import pandas as pd
+import os
 
 model = joblib.load("../AIPrototype2023/templates/model_webapp.joblib")
-
-def load_data(file_path):
-    import pandas as pd
-    data = pd.read_csv(file_path, encoding='utf-8', errors='replace')
-    return data.values
-
 app = Flask(__name__)
-
+scaler = StandardScaler()
 @app.route('/myapp')
 def index():
     return render_template('index.html')
@@ -19,16 +15,13 @@ def index():
 def upload_file():
     if request.method == 'POST':
         file = request.files['file']
+        upload_folder = '/Users/mintttttttt/AIPrototype2023/static/data'
+        file_path = os.path.join(upload_folder)
+
         # Save the uploaded file
-        file_path = f"{file.filename}"
+        data = pd.read_csv(file)
         file.save(file_path)
-
-        # Load the data from the file
-        data = load_data(file_path)
-
-        # Rescale the data using the previously created scaler
-        scaler = StandardScaler()
-        scaled_data = scaler.transform(data.reshape(1, -1))
+        scaled_data = scaler.transform(data)
 
         # Make predictions using the pre-trained model
         predictions = model.predict(scaled_data)
