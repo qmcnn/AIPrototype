@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, make_response 
+from flask import Flask, request, render_template, make_response
 from sklearn.preprocessing import StandardScaler
 import joblib
 import pandas as pd
@@ -7,6 +7,7 @@ import os
 model = joblib.load("../AIPrototype2023/templates/model_webapp.joblib")
 app = Flask(__name__)
 scaler = StandardScaler()
+
 @app.route('/myapp')
 def index():
     return render_template('index.html')
@@ -28,13 +29,15 @@ def upload_file():
 
         # Determine the template to render based on the prediction
         if all(value == 0 for value in predictions):
-            return render_template('normal.html')
+            result_template = 'normal.html'
         elif any(value == 1 for value in predictions):
-            return render_template('chronic.html')
+            result_template = 'chronic.html'
 
+        # Pass the predictions list to the template
+        return render_template(result_template, predictions=predictions)
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0',debug=True,port=5001)#host='0.0.0.0',port=5001
+    app.run(host='0.0.0.0', debug=True, port=5001)
 
 
   #padding-left: 40px;
