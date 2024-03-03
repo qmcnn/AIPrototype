@@ -28,7 +28,7 @@ def upload_file():
 
         # Rescale the data using the previously created scaler
         scaler = StandardScaler()
-        scaled_data = scaler.transform(data)
+        scaled_data = scaler.transform(data.reshape(1, -1))
 
         # Make predictions using the pre-trained model
         predictions = model.predict(scaled_data)
