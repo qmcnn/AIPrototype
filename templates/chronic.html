@@ -263,12 +263,6 @@
     />
   </head>
   <body>
-    <ul>
-      {% for prediction in predictions %}
-          <li>{{ prediction }}</li>
-      {% endfor %}
-    </ul>
-
     <link rel="stylesheet" href="{{ url_for ('static', filename='style.css')}}" />
     <div>
       <link href="{{ url_for ('static', filename='normal.css')}}" rel="stylesheet" />

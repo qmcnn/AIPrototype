@@ -34,6 +34,7 @@ def upload_file():
             result_template = 'chronic.html'
 
         # Pass the predictions list to the template
+        print(predictions)
         return render_template(result_template, predictions=predictions)
 
 if __name__ == "__main__":
