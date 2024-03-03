@@ -19,7 +19,7 @@ def upload_file():
         file_path = os.path.join(upload_folder)
 
         # Save the uploaded file
-        data = pd.read_csv(file)
+        data = pd.read_excel(file)
         file.save(file_path)
         scaled_data = scaler.transform(data)
 
