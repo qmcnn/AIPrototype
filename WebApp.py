@@ -31,7 +31,6 @@ def upload_file():
             return render_template('normal.html')
         elif predictions[0] == 1:
             return render_template('chronic.html')
-        return render_template("normal.html", name='upload completed')
 
 
 if __name__ == "__main__":
