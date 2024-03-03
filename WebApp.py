@@ -21,7 +21,7 @@ def upload_file():
         # Save the uploaded file
         data = pd.read_excel(file)
         file.save(file_path)
-        scaled_data = scaler.transform(data)
+        scaled_data = scaler.fit_transform(data)
 
         # Make predictions using the pre-trained model
         predictions = model.predict(scaled_data)
