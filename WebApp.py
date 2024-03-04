@@ -4,6 +4,8 @@ import joblib
 import pandas as pd
 import os
 from collections import Counter
+from werkzeug.utils import secure_filename
+
 
 model = joblib.load("../AIPrototype2023/templates/model_webapp.joblib")
 app = Flask(__name__)
@@ -16,14 +18,21 @@ def index():
 @app.route('/prediction', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
-        print('upload completed')
         file = request.files['file']
-        upload_folder = '../AIPrototype2023/static/folder'
-        file_path = os.path.join(upload_folder)
 
-        # Save the uploaded file
-        data = pd.read_excel(file)
+        # Specify the upload folder and create it if it doesn't exist
+        upload_folder = '../AIPrototype2023/static/folder'
+        os.makedirs(upload_folder, exist_ok=True)
+
+        # Save the uploaded file with a secure filename
+        filename = secure_filename(file.filename)
+        file_path = os.path.join(upload_folder, filename)
         file.save(file_path)
+
+        print(f'Upload completed: {filename}')
+
+        # Now you can use file_path for further processing if needed
+        data = pd.read_excel(file_path)
         scaled_data = scaler.fit_transform(data)
 
         # Make predictions using the pre-trained model
