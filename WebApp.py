@@ -49,19 +49,13 @@ def upload_file():
         last_prediction = predictions[-1]
 
         # Create a DataFrame with a column for predictions
-        df = pd.DataFrame({'Predictions': predictions})
+        df = pd.DataFrame({'Predictions Class': predictions})
 
         # Save the DataFrame to a new CSV file
         df.to_csv('static/predictions.csv', index=False)
        
         # Convert DataFrame to HTML table
         table = df.to_html()
-
-        # Pass the predictions list to the template
-        template_data = {
-            'table': table,
-            'all_predictions': all_predictions
-        }
 
         if majority_class == 0:
             result_template = 'normal.html'
@@ -75,7 +69,7 @@ def upload_file():
 
         # Pass the predictions list to the template
             
-        return render_template('chronic.html', table=table, all_predictions=all_predictions)
+        return render_template(result_template, table=table, all_predictions=all_predictions)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True, port=5001)

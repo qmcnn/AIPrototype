@@ -32,10 +32,11 @@
       
       /* เพิ่มสไตล์ให้กับตาราง */
       table {
-            width: 200px; /* กำหนดความกว้างให้เต็มหน้าจอ */
-            max-width: 200px; /* กำหนดความกว้างสูงสุด */
+            width: 400px; /* กำหนดความกว้างให้เต็มหน้าจอ */
+            max-width: 400px; /* กำหนดความกว้างสูงสุด */
             border-collapse: collapse;
-            margin-top: 20px;
+            margin-top: 1050px;
+            margin-left: 550px;
       }
 
       /* กำหนดสีพื้นหลังแถวที่สลับ */
@@ -50,7 +51,7 @@
 
       /* กำหนดสีขอบของตาราง */
       table, th, td {
-          border: 1px solid black;
+          border: 1px solid rgb(129, 129, 129);
       }
 
       /* กำหนดระยะระหว่างขอบและข้อความ */
@@ -62,9 +63,15 @@
 
       /* ปรับแต่งสไตล์ส่วนหัวของตาราง */
       th {
-          background-color: #af564c82;
+          background-color: rgb(150, 47, 47);
           color: white;
       }
+      .prediction-text {
+            margin-top: 1050px;
+            font-size: 22px;
+            color: #000000;
+            margin-left: 700px;
+        }
 
     </style>
     <link
@@ -303,11 +310,10 @@
   </head>
   <body>
     {{ table | safe }}
-
-    <p>All Predictions:</p>
-    {% for prediction in all_predictions %}
-        {{ prediction }}
-    {% endfor %}
+    <div class="prediction-text">
+          <p>Prediction Class 0: Normal Kidney</p>
+          <p>Prediction Class 1: Chronic Kidney</p>
+    </div>
     <link rel="stylesheet" href="{{ url_for ('static', filename='style.css')}}" />
     <div>
       <link href="{{ url_for ('static', filename='normal.css')}}" rel="stylesheet" />
