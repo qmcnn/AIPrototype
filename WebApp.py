@@ -3,6 +3,7 @@ from sklearn.preprocessing import StandardScaler
 import joblib
 import pandas as pd
 import os
+from collections import Counter
 
 model = joblib.load("../AIPrototype2023/templates/model_webapp.joblib")
 app = Flask(__name__)
@@ -27,11 +28,21 @@ def upload_file():
         # Make predictions using the pre-trained model
         predictions = model.predict(scaled_data)
 
-        # Determine the template to render based on the prediction
-        if all(value == 0 for value in predictions):
+        # Count occurrences of each class
+        class_counts = Counter(predictions)
+
+        # Determine the template to render based on the majority class
+        majority_class = class_counts.most_common(1)[0][0]
+
+        if majority_class == 0:
             result_template = 'normal.html'
-        elif any(value == 1 for value in predictions):
+        elif majority_class == 1:
             result_template = 'chronic.html'
+        # Determine the template to render based on the prediction
+        #if all(value == 0 for value in predictions):
+        #    result_template = 'normal.html'
+        #elif any(value == 1 for value in predictions):
+        #    result_template = 'chronic.html'
 
         # Pass the predictions list to the template
         return render_template(result_template, predictions=predictions)
