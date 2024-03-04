@@ -273,9 +273,17 @@
     </ul>
 
     <h2>Predictions Table:</h2>
-    <table border="1">
-        {{ table | safe }}
-    </table>
+    {{ table | safe }}
+
+    <div class="container">
+        <a href="{{ url_for('download_file', result_type='chronic') }}" class="button_table">
+            <div class="button__line"></div>
+            <div class="button__line"></div>
+            <span class="button__text">Download</span>
+            <div class="button__drow1"></div>
+            <div class="button__drow2"></div>
+        </a>
+    </div>
     <link rel="stylesheet" href="{{ url_for ('static', filename='style.css')}}" />
     <div>
       <link href="{{ url_for ('static', filename='normal.css')}}" rel="stylesheet" />

@@ -93,3 +93,76 @@
   text-transform: none;
   text-decoration: none;
 }
+/* style.css */
+
+.container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.button_table {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  margin: 20px;
+  padding: 15px 30px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+}
+
+.button__line {
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: #fff;
+  transition: transform 0.5s ease;
+}
+
+.button__line:nth-child(1) {
+  top: 0;
+}
+
+.button__line:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.button__line:nth-child(3) {
+  bottom: 0;
+}
+
+.button__text {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+}
+
+.button:hover .button__line:nth-child(1) {
+  transform: translateY(8px);
+}
+
+.button:hover .button__line:nth-child(3) {
+  transform: translateY(-8px);
+}
+
+.button:hover .button__line:nth-child(2) {
+  transform: scaleX(0);
+}
+
+.button__drow1,
+.button__drow2 {
+  position: absolute;
+  width: 2px;
+  height: 14px;
+  background: #fff;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+}
+
+.button:hover .button__drow1,
+.button:hover .button__drow2 {
+  transform: translateX(-50%) translateY(8px) rotate(90deg);
+}
+
