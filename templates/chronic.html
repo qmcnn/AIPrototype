@@ -28,6 +28,42 @@
 
       }
     </style>
+    <style>
+      /* เพิ่มสไตล์ให้กับตาราง */
+      table {
+          width: 100%;
+          border-collapse: collapse;
+          margin-top: 20px;
+      }
+
+      /* กำหนดสีพื้นหลังแถวที่สลับ */
+      table tr:nth-child(even) {
+          background-color: #f2f2f2;
+      }
+
+      /* กำหนดสีพื้นหลังแถวที่เหลือ */
+      table tr:nth-child(odd) {
+          background-color: #ffffff;
+      }
+
+      /* กำหนดสีขอบของตาราง */
+      table, th, td {
+          border: 1px solid black;
+      }
+
+      /* กำหนดระยะระหว่างขอบและข้อความ */
+      th, td {
+          padding: 10px;
+          text-align: left;
+      }
+
+      /* ปรับแต่งสไตล์ส่วนหัวของตาราง */
+      th {
+          background-color: #4CAF50;
+          color: white;
+      }
+
+    </style>
     <link
       rel="stylesheet"
       href="https://unpkg.com/animate.css@4.1.1/animate.css"
