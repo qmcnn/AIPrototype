@@ -62,7 +62,7 @@ def upload_file():
             'table': table,
             'all_predictions': all_predictions
         }
-        
+
         if majority_class == 0:
             result_template = 'normal.html'
         elif majority_class == 1 or last_prediction == 1:
@@ -75,8 +75,7 @@ def upload_file():
 
         # Pass the predictions list to the template
             
-        return render_template(result_template, **template_data)
-    
+        return render_template('chronic.html', table=table, all_predictions=all_predictions)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True, port=5001)
