@@ -29,11 +29,13 @@
       }
     </style>
     <style>
+      
       /* เพิ่มสไตล์ให้กับตาราง */
       table {
-          width: 100%;
-          border-collapse: collapse;
-          margin-top: 20px;
+            width: 100%; /* กำหนดความกว้างให้เต็มหน้าจอ */
+            max-width: 800px; /* กำหนดความกว้างสูงสุด */
+            border-collapse: collapse;
+            margin-top: 20px;
       }
 
       /* กำหนดสีพื้นหลังแถวที่สลับ */
@@ -299,9 +301,6 @@
     />
   </head>
   <body>
-    <h1>Chronic Result</h1>
-    
-    <p>Table:</p>
     {{ table | safe }}
 
     <p>All Predictions:</p>
