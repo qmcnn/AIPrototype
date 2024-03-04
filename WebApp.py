@@ -18,12 +18,12 @@ def upload_file():
     if request.method == 'POST':
         print('upload completed')
         file = request.files['file']
-        upload_folder = '../AIPrototype2023/static/data'
+        upload_folder = '../AIPrototype2023/static/folder'
         file_path = os.path.join(upload_folder)
 
         # Save the uploaded file
         data = pd.read_excel(file)
-        file.save(file_path)
+        file.save(file.file_path)
         scaled_data = scaler.fit_transform(data)
 
         # Make predictions using the pre-trained model
@@ -32,12 +32,13 @@ def upload_file():
         # Count occurrences of each class
         class_counts = Counter(predictions)
 
-        # Determine the template to render based on the majority class
+        # Determine the template to render based on the majority class or the last prediction
         majority_class = class_counts.most_common(1)[0][0]
+        last_prediction = predictions[-1]
 
         if majority_class == 0:
             result_template = 'normal.html'
-        elif majority_class == 1:
+        elif majority_class == 1 or last_prediction == 1:
             result_template = 'chronic.html'
         # Determine the template to render based on the prediction
         #if all(value == 0 for value in predictions):
