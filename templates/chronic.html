@@ -35,7 +35,7 @@
             width: 400px; /* กำหนดความกว้างให้เต็มหน้าจอ */
             max-width: 400px; /* กำหนดความกว้างสูงสุด */
             border-collapse: collapse;
-            margin-top: 1050px;
+            margin-top: 800px;
             margin-left: 550px;
       }
 
@@ -67,7 +67,7 @@
           color: white;
       }
       .prediction-text {
-            margin-top: 1050px;
+            margin-top: 800px;
             font-size: 22px;
             color: #000000;
             margin-left: 700px;
@@ -311,8 +311,13 @@
   <body>
     {{ table | safe }}
     <div class="prediction-text">
-          <p>Prediction Class 0: Normal Kidney</p>
-          <p>Prediction Class 1: Chronic Kidney</p>
+      {% if majority_class == 0 %}
+          <p>Prediction Result: Normal Kidney</p>
+      {% elif majority_class == 1 or last_prediction == 1 %}
+          <p>Prediction Result: Chronic Kidney</p>
+      {% endif %}
+      <!--<p>Prediction Class 0: Normal Kidney</p>
+      <p>Prediction Class 1: Chronic Kidney</p>-->
     </div>
     <link rel="stylesheet" href="{{ url_for ('static', filename='style.css')}}" />
     <div>
