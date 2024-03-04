@@ -58,7 +58,7 @@ def upload_file():
     
 @app.route('/prediction_result/<result_type>', methods=['GET'])
 def prediction_result(result_type):
-    # สร้างตาราง
+    # สร้างตาราง HTML
     table_html = '<table border="1"><tr><th>Index</th><th>Prediction</th></tr>'
     for index, prediction in enumerate(predictions):
         table_html += f'<tr><td>{index + 1}</td><td>{prediction}</td></tr>'
@@ -72,7 +72,6 @@ def prediction_result(result_type):
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True, port=5001)
-
 
   #padding-left: 40px;
   #padding-bottom: 15px;
