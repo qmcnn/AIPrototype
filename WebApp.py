@@ -32,8 +32,14 @@ def upload_file():
         data = pd.read_excel(file_path)
         scaled_data = scaler.fit_transform(data)
 
+       # Add the result to a list of predictions
+        all_predictions = []
+
         # Make predictions using the pre-trained model
         predictions = model.predict(scaled_data)
+
+        # Append the predictions to the list
+        all_predictions.append(predictions)
 
         # Count occurrences of each class
         class_counts = Counter(predictions)
@@ -41,6 +47,17 @@ def upload_file():
         # Determine the template to render based on the majority class or the last prediction
         majority_class = class_counts.most_common(1)[0][0]
         last_prediction = predictions[-1]
+
+        # Read the CSV file into a DataFrame
+        df = pd.read_csv('static/predictions.csv')
+        table = df.to_html()
+
+        # Pass the predictions list to the template
+        template_data = {
+            'table': table,
+            'all_predictions': all_predictions
+        }
+
 
         if majority_class == 0:
             result_template = 'normal.html'
@@ -54,21 +71,8 @@ def upload_file():
 
         # Pass the predictions list to the template
             
-        return render_template(result_template, predictions=predictions)
+        return render_template(result_template, **template_data)
     
-@app.route('/prediction_result/<result_type>', methods=['GET'])
-def prediction_result(result_type):
-    # สร้างตาราง HTML
-    table_html = '<table border="1"><tr><th>Index</th><th>Prediction</th></tr>'
-    for index, prediction in enumerate(predictions):
-        table_html += f'<tr><td>{index + 1}</td><td>{prediction}</td></tr>'
-    table_html += '</table>'
-
-    # เลือก HTML template ตามประเภทผลการทำนาย
-    template_name = 'chronic.html' if result_type == 'chronic' else 'normal.html'
-
-    # ใส่ตารางลงใน HTML template และส่งไปแสดงผล
-    return render_template(template_name, table=table_html, predictions=predictions)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True, port=5001)
