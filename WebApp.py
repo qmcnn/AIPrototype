@@ -16,6 +16,7 @@ def index():
 @app.route('/prediction', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
+        
         file = request.files['file']
         upload_folder = '../AIPrototype2023/static/data'
         file_path = os.path.join(upload_folder)
@@ -45,8 +46,10 @@ def upload_file():
         #    result_template = 'chronic.html'
 
         # Pass the predictions list to the template
+            
         return render_template(result_template, predictions=predictions)
-
+    print('upload completed')
+    
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True, port=5001)
 
