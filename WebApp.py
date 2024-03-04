@@ -48,8 +48,13 @@ def upload_file():
         majority_class = class_counts.most_common(1)[0][0]
         last_prediction = predictions[-1]
 
-        # Read the CSV file into a DataFrame
-        df = pd.read_csv('static/predictions.csv')
+        # Create a DataFrame with a column for predictions
+        df = pd.DataFrame({'Predictions': predictions})
+
+        # Save the DataFrame to a new CSV file
+        df.to_csv('static/predictions.csv', index=False)
+       
+        # Convert DataFrame to HTML table
         table = df.to_html()
 
         # Pass the predictions list to the template
@@ -57,8 +62,7 @@ def upload_file():
             'table': table,
             'all_predictions': all_predictions
         }
-
-
+        
         if majority_class == 0:
             result_template = 'normal.html'
         elif majority_class == 1 or last_prediction == 1:
