@@ -56,6 +56,19 @@ def upload_file():
             
         return render_template(result_template, predictions=predictions)
     
+@app.route('/prediction_result/<result_type>', methods=['GET'])
+def prediction_result(result_type):
+    # สร้างตาราง
+    table_html = '<table border="1"><tr><th>Index</th><th>Prediction</th></tr>'
+    for index, prediction in enumerate(predictions):
+        table_html += f'<tr><td>{index + 1}</td><td>{prediction}</td></tr>'
+    table_html += '</table>'
+
+    # เลือก HTML template ตามประเภทผลการทำนาย
+    template_name = 'chronic.html' if result_type == 'chronic' else 'normal.html'
+
+    # ใส่ตารางลงใน HTML template และส่งไปแสดงผล
+    return render_template(template_name, table=table_html, predictions=predictions)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True, port=5001)
