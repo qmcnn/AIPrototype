@@ -35,41 +35,36 @@ def upload_file():
        # Add the result to a list of predictions
         all_predictions = []
 
-        # Make predictions using the pre-trained model
+        #Make predictions using the pre-trained model
         predictions = model.predict(scaled_data)
 
         # Append the predictions to the list
         all_predictions.append(predictions)
-
-        # Count occurrences of each class
-        class_counts = Counter(predictions)
-
-        # Determine the template to render based on the majority class or the last prediction
-        majority_class = class_counts.most_common(1)[0][0]
-        last_prediction = predictions[-1]
 
         # Create a DataFrame with a column for predictions
         df = pd.DataFrame({'Predictions Class': predictions})
 
         # Save the DataFrame to a new CSV file
         df.to_csv('static/predictions.csv', index=False)
-       
-        # Convert DataFrame to HTML table
+
+        #Convert DataFrame to HTML table
         table = df.to_html()
 
-        if majority_class == 0:
-            result_template = 'normal.html'
-        elif majority_class == 1 or last_prediction == 1:
+        # Check if the last prediction is 1
+        if predictions[-1] == 1:
             result_template = 'chronic.html'
-        # Determine the template to render based on the prediction
-        #if all(value == 0 for value in predictions):
-        #    result_template = 'normal.html'
-        #elif any(value == 1 for value in predictions):
-        #    result_template = 'chronic.html'
 
-        # Pass the predictions list to the template
-            
+        # Count occurrences of each class
+        class_counts = Counter(predictions)
+
+        # Check conditions for rendering templates
+        if class_counts[0] > class_counts[1]:
+            result_template = 'normal.html'
+        else:
+            result_template = 'chronic.html'
+
         return render_template(result_template, table=table, all_predictions=all_predictions)
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True, port=5001)
