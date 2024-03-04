@@ -4,7 +4,6 @@ import joblib
 import pandas as pd
 import os
 from collections import Counter
-from werkzeug.utils import secure_filename
 
 
 model = joblib.load("../AIPrototype2023/templates/model_webapp.joblib")
@@ -20,16 +19,14 @@ def upload_file():
     if request.method == 'POST':
         file = request.files['file']
 
-        # Specify the upload folder and create it if it doesn't exist
-        upload_folder = '../AIPrototype2023/static/folder'
-        os.makedirs(upload_folder, exist_ok=True)
+        # Specify the upload folder
+        upload_folder = '../AIPrototype2023/static/data'
 
-        # Save the uploaded file with a secure filename
-        filename = secure_filename(file.filename)
-        file_path = os.path.join(upload_folder, filename)
+        # Save the uploaded file in the upload folder
+        file_path = os.path.join(upload_folder, file.filename)
         file.save(file_path)
 
-        print(f'Upload completed: {filename}')
+        print(f'Upload completed: {file.filename}')
 
         # Now you can use file_path for further processing if needed
         data = pd.read_excel(file_path)
