@@ -1,14 +1,19 @@
-from flask import Flask, request, render_template, make_response
+from flask import Flask, request, render_template
 from sklearn.preprocessing import StandardScaler
 import joblib
 import pandas as pd
 import os
 from collections import Counter
+import logging
 
-
+log = logging.getLogger('werkzeug')
+log.setLevel(logging.CRITICAL)
 model = joblib.load("../AIPrototype2023/templates/model_webapp.joblib")
 app = Flask(__name__)
 scaler = StandardScaler()
+upload_folder = 'static/folder'
+os.makedirs(upload_folder, exist_ok=True)
+all_predictions = []
 
 @app.route('/myapp')
 def index():
@@ -19,15 +24,11 @@ def upload_file():
     if request.method == 'POST':
         file = request.files['file']
 
-        # Specify the upload folder
-        upload_folder = '../AIPrototype2023/static/folder'
-
         # Save the uploaded file in the upload folder
         file_path = os.path.join(upload_folder, file.filename)
         file.save(file_path)
 
         print(f'Upload completed: {file.filename}')
-
         # Now you can use file_path for further processing if needed
         data = pd.read_excel(file_path)
         scaled_data = scaler.fit_transform(data)
