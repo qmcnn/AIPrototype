@@ -24,7 +24,7 @@ Chanoknan Meesing 👩🏻‍💻
 #### Tensorflow ([คาบที่11](https://github.com/qmcnn/AIPrototype2023/blob/main/Tensorflow_(Deep_Learning_Implementation).ipynb))
 
 
-## ​  [Web Page 📲](https://nxxk23.github.io/test_webpage/index.html)
+## ​  [Web Page 📲](https://qmcnn.github.io/ckd-project/index.html)
   ####    [🌸 Github Project](https://github.com/nxxk23/PROJECT)
 
 
