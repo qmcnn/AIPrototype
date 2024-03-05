@@ -26,8 +26,9 @@ Chanoknan Meesing 👩🏻‍💻
 
 ## ​  [Web Page 📲](https://qmcnn.github.io/ckd-project/index.html)
   ####    [🌸 Github Project](https://github.com/nxxk23/PROJECT)
+  ####    [🌸 Github WebPage](https://github.com/qmcnn/ckd-project/tree/main)
 
 
 
-##   [Web Application 💻](https://qmcnn.github.io/AIPrototype2023/WebApp/template-html/index.html)
-  ####    [🌸 Github WebApp](https://github.com/qmcnn/AIPrototype2023/tree/main/WebApp)
+##   [Web Application 💻](https://qmcnn.github.io/AIPrototype2023/templates/index.html)
+  
